@@ -12,4 +12,4 @@ client.loop_start()
 client.subscribe("TEMPERATURE")
 client.on_message = on_message
 time.sleep(50)
-client.loop_end()
+client.loop_stop()
