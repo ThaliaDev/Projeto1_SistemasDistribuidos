@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+service User {
+  rpc login(LoginRequest) returns (LoginResponse);
+  rpc cadastro(CadastroRequest) returns (CadastroResponse);
+}
+
+message LoginRequest{
+  string usuario = 1;
+  string senha = 2;
+}
+
+message LoginResponse{
+  string responseMessage = 1;
+  int32 code = 2;
+}
+
+message CadastroRequest{
+  string usuario_s = 1;
+  string senha_s = 2;
+}
+
+message CadastroResponse{
+  string responseMessage_s = 1;
+  int32 code_s = 2;
+  string usuario_s = 3;
+  string senha_s = 4;
+}
