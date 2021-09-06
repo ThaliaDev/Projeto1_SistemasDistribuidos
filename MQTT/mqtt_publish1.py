@@ -7,7 +7,7 @@ client = mqtt.Client("Temperature_Inside")
 client.connect(mqttBroker)
 
 while True:
-    randNumber = randrange(10)
-    client.publish("Temperature",randNumber)
-    print("Just published" + str(randNumber) + "to Topic TEMPERATURE")
+    randNumber = uniform(20.0, 21.0)
+    client.publish("TEMPERATURE", randNumber)
+    print("Just published " + str(randNumber) + " to Topic TEMPERATURE")
     time.sleep(1)
