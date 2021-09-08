@@ -6,7 +6,7 @@ repetir_aceito = [1,0]
 
 s = socket.socket()
 host = socket.gethostname()
-port = 12346
+port = 12347
 
 user = str(input("Usuário: "))
 dados_entrada[user] = str(input("Senha: "))

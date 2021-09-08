@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x13gerenciar_adm.proto\".\n\x0cLoginRequest\x12\x0f\n\x07usuario\x18\x01 \x01(\t\x12\r\n\x05senha\x18\x02 \x01(\t\"6\n\rLoginResponse\x12\x17\n\x0fresponseMessage\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\"5\n\x0f\x43\x61\x64\x61stroRequest\x12\x11\n\tusuario_s\x18\x01 \x01(\t\x12\x0f\n\x07senha_s\x18\x02 \x01(\t\"a\n\x10\x43\x61\x64\x61stroResponse\x12\x19\n\x11responseMessage_s\x18\x01 \x01(\t\x12\x0e\n\x06\x63ode_s\x18\x02 \x01(\x05\x12\x11\n\tusuario_s\x18\x03 \x01(\t\x12\x0f\n\x07senha_s\x18\x04 \x01(\t2_\n\x04User\x12&\n\x05login\x12\r.LoginRequest\x1a\x0e.LoginResponse\x12/\n\x08\x63\x61\x64\x61stro\x12\x10.CadastroRequest\x1a\x11.CadastroResponseb\x06proto3'
+  serialized_pb=b'\n\x13gerenciar_adm.proto\".\n\x0cLoginRequest\x12\x0f\n\x07usuario\x18\x01 \x01(\t\x12\r\n\x05senha\x18\x02 \x01(\t\"6\n\rLoginResponse\x12\x17\n\x0fresponseMessage\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\"E\n\x0f\x43\x61\x64\x61stroRequest\x12\x11\n\tusuario_s\x18\x01 \x01(\t\x12\x0f\n\x07senha_s\x18\x02 \x01(\t\x12\x0e\n\x06\x63ompra\x18\x03 \x01(\t\"a\n\x10\x43\x61\x64\x61stroResponse\x12\x19\n\x11responseMessage_s\x18\x01 \x01(\t\x12\x11\n\tusuario_s\x18\x02 \x01(\t\x12\x0f\n\x07senha_s\x18\x03 \x01(\t\x12\x0e\n\x06\x63ompra\x18\x04 \x01(\t2_\n\x04User\x12&\n\x05login\x12\r.LoginRequest\x1a\x0e.LoginResponse\x12/\n\x08\x63\x61\x64\x61stro\x12\x10.CadastroRequest\x1a\x11.CadastroResponseb\x06proto3'
 )
 
 
@@ -125,6 +125,13 @@ _CADASTROREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='compra', full_name='CadastroRequest.compra', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -138,7 +145,7 @@ _CADASTROREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=127,
-  serialized_end=180,
+  serialized_end=196,
 )
 
 
@@ -158,21 +165,21 @@ _CADASTRORESPONSE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='code_s', full_name='CadastroResponse.code_s', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='usuario_s', full_name='CadastroResponse.usuario_s', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='usuario_s', full_name='CadastroResponse.usuario_s', index=2,
+      name='senha_s', full_name='CadastroResponse.senha_s', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='senha_s', full_name='CadastroResponse.senha_s', index=3,
+      name='compra', full_name='CadastroResponse.compra', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -190,8 +197,8 @@ _CADASTRORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=182,
-  serialized_end=279,
+  serialized_start=198,
+  serialized_end=295,
 )
 
 DESCRIPTOR.message_types_by_name['LoginRequest'] = _LOGINREQUEST
@@ -237,8 +244,8 @@ _USER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=281,
-  serialized_end=376,
+  serialized_start=297,
+  serialized_end=392,
   methods=[
   _descriptor.MethodDescriptor(
     name='login',

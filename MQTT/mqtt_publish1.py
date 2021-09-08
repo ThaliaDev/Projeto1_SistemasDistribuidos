@@ -3,7 +3,7 @@ from random import randrange, uniform
 import time
 
 mqttBroker = "mqtt.eclipseprojects.io"
-client = mqtt.Client("Temperature_Inside")
+client = mqtt.Client("Cadastro de cliente")
 client.connect(mqttBroker)
 
 while True:

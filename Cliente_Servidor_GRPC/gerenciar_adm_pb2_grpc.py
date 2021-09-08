@@ -36,7 +36,11 @@ class UserServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def cadastro(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """rpc listarClientes (ListarClientesRequest) returns (ListarClientesResponse);
+        rpc editarCadastro (EditarCadastroRequest) returns (EditarCadastroResponse);
+        rpc excluirCadastro (ExcluirCadastroRequest) returns (ExcluirCadastroResponse);
+        rpc listarClientesPedidos (ListarClientesPedidosRequest) returns (ListarClientesPedidosResponse);
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')

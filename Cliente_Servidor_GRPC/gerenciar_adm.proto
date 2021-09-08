@@ -3,6 +3,10 @@ syntax = "proto3";
 service User {
   rpc login(LoginRequest) returns (LoginResponse);
   rpc cadastro(CadastroRequest) returns (CadastroResponse);
+  //rpc listarClientes (ListarClientesRequest) returns (ListarClientesResponse);
+  //rpc editarCadastro (EditarCadastroRequest) returns (EditarCadastroResponse);
+  //rpc excluirCadastro (ExcluirCadastroRequest) returns (ExcluirCadastroResponse);
+  //rpc listarClientesPedidos (ListarClientesPedidosRequest) returns (ListarClientesPedidosResponse);
 }
 
 message LoginRequest{
@@ -18,11 +22,12 @@ message LoginResponse{
 message CadastroRequest{
   string usuario_s = 1;
   string senha_s = 2;
+  string compra = 3;
 }
 
 message CadastroResponse{
   string responseMessage_s = 1;
-  int32 code_s = 2;
-  string usuario_s = 3;
-  string senha_s = 4;
+  string usuario_s = 2;
+  string senha_s = 3;
+  string compra = 4;
 }
