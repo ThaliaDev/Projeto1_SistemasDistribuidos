@@ -14,6 +14,10 @@ senha = '123'
 dicionario_cliente = dict()
 lista_clientes = []
 
+mqttBroker = "mqtt.eclipseprojects.io"
+client = mqtt.Client("Servidor GRPC")
+client.connect(mqttBroker)
+
 class User(gerenciar_adm_pb2_grpc.UserServicer):
     def login(self, request, context):
         if(request.usuario == usuario and request.senha == senha):
@@ -29,11 +33,14 @@ class User(gerenciar_adm_pb2_grpc.UserServicer):
         global dicionario_cliente
 
         print(dicionario_cliente)
+
         if request.usuario_s in dicionario_cliente:
             return gerenciar_adm_pb2.CadastroResponse(responseMessage_s = 'Usuário já existente', compra=None)
         else:
             lista_clientes.append([request.usuario_s, [request.senha_s, request.compra]])
             dicionario_cliente = dict(lista_clientes)
+            client.publish("CADASTRO", str(dicionario_cliente))
+            print("Castrados existentes " + str(dicionario_cliente) + " na base de dados!")
 
             return gerenciar_adm_pb2.CadastroResponse(responseMessage_s = 'Usuário Cadastrado', compra = None)
 
