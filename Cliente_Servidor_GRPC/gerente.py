@@ -7,8 +7,8 @@ import ast
 
 def cadastro(stub):
 
-    usuario_s = input("Nome de login do cliente: ")
-    dados_cadastro[usuario_s] = input("Senha do cliente: ")
+    usuario_s = input("Nome de login do funcionário: ")
+    dados_cadastro[usuario_s] = input("Senha do funcionário: ")
     responseCad = stub.cadastro(gerenciar_adm_pb2.CadastroRequest(usuario_s = usuario_s, senha_s = dados_cadastro[usuario_s], compra = None))
 
     if (responseCad.responseMessage_s != "Usuário já existente"):

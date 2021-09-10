@@ -59,8 +59,6 @@ class User(gerenciar_adm_pb2_grpc.UserServicer):
         for x, y in dicionario_cliente.items():
             if y[1] not in lista_clientes_vendas:
                 lista_clientes_vendas.append(y[1])
-            if y[1] == '':
-                lista_clientes_vendas.remove(y[1])
 
         print(lista_clientes_vendas)
         return gerenciar_adm_pb2.ListarClientesResponse(clientes = str(lista_clientes_vendas))
