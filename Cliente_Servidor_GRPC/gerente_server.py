@@ -43,7 +43,7 @@ class User(gerenciar_adm_pb2_grpc.UserServicer):
             lista_clientes.append([request.usuario_s, [request.senha_s, request.compra]])
             dicionario_cliente = dict(lista_clientes)
             client.publish("CADASTRO", str(dicionario_cliente))
-            print("Castrados existentes " + str(dicionario_cliente) + " na base de dados!")
+            print("Cadastros existentes " + str(dicionario_cliente) + " na base de dados!")
 
             return gerenciar_adm_pb2.CadastroResponse(responseMessage_s = 'Usuário Cadastrado', compra = None)
 
@@ -65,6 +65,8 @@ class User(gerenciar_adm_pb2_grpc.UserServicer):
         global dicionario_cliente
         if request.usuario in dicionario_cliente:
             dicionario_cliente[request.usuario][0] = request.senha
+            client.publish("EDITADO", str(dicionario_cliente))
+            print("Cadastros editados " + str(dicionario_cliente) + " na base de dados!")
             return gerenciar_adm_pb2.EditarCadastroResponse(responseMessage = "Senha alterada com sucesso")
         else:
             return gerenciar_adm_pb2.EditarCadastroResponse(responseMessage = "Usuário não existente")
@@ -75,6 +77,8 @@ class User(gerenciar_adm_pb2_grpc.UserServicer):
         global lista_clientes_vendas
         if request.usuario in dicionario_cliente:
             dicionario_cliente.pop(request.usuario)
+            client.publish("EXCLUIDO", str(dicionario_cliente))
+            print("Cadastros excluidos " + str(dicionario_cliente) + " na base de dados!")
             return gerenciar_adm_pb2.ExcluirCadastroResponse(responseMessage = "Usuário deletado com sucesso")
         else:
             return gerenciar_adm_pb2.ExcluirCadastroResponse(responseMessage = "Usuário não existente")
