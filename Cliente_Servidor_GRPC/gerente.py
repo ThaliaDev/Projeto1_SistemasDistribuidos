@@ -3,6 +3,7 @@ import logging
 import grpc
 import gerenciar_adm_pb2_grpc
 import gerenciar_adm_pb2
+import ast
 
 def cadastro(stub):
 
@@ -15,14 +16,40 @@ def cadastro(stub):
     else:
         print("\nUsuário existente na base.\n")
 
+def listarVendas(stub):
+    cont = 1
+    print("\n=== LISTA DE ITENS VENDIDOS ===\n")
+    lista = stub.listarClientesVendas(gerenciar_adm_pb2.ListaVendas())
+    lista = ast.literal_eval(lista.vendas)
+    for i in lista:
+        print(str(cont) + ". " + i + "\n")
+        cont += 1
+
 def listarClientes(stub):
-    print("Listar clientes cadastrados")
+    cont = 1
+    print("\n=== LISTA DE FUNCIONÁRIOS ===\n")
+    lista = stub.listarClientes(gerenciar_adm_pb2.ListaRequest())
+    lista = ast.literal_eval(lista.clientes)
+    for i in lista:
+        print(str(cont) + ". " + i + "\n")
+        cont += 1
 
 def editarCadastro(stub):
-    print("Editar cadastro")
+    usuarioEditado = input("Alteração da senha de qual usuário? ")
+    senhaEditada = input("Digite a nova senha: ")
+    response = stub.editarCadastro(gerenciar_adm_pb2.EditarCadastroRequest(usuario = usuarioEditado, senha = senhaEditada))
+    if response.responseMessage == "Senha alterada com sucesso":
+        print("A senha foi alterada com sucesso. \n")
+    else:
+        print("Usuário não existente.\n")
 
 def excluirCadastro(stub):
-    print("Excluir cadastro")
+    usuarioExcluido = input("Exclusão de qual usuário? ")
+    response = stub.excluirCadastro(gerenciar_adm_pb2.ExcluirCadastroRequest(usuario = usuarioExcluido))
+    if response.responseMessage == "Usuário deletado com sucesso":
+        print("O usuário foi excluído com sucesso. \n")
+    else:
+        print("Usuário não existente.\n")
 
 dados_cadastro = dict()
 
@@ -40,8 +67,8 @@ def run():
     if (response.responseMessage == "Usuário logado"):
         print(f"\nBem vind@, {usuario}.")
         print("\n === MENU DE OPÇÕES === \n\n1 - Cadastrar novo cliente"
-              "\n2 - Listar clientes cadastrados \n3 - Editar cadastro \n4 - Excluir cadastro"
-              "\n5 - Logout\n")
+              "\n2 - Listar funcionários \n3 - Editar cadastro \n4 - Excluir cadastro"
+              "\n5 - Listar vendas \n6 - Logout\n")
 
         while True:
             opcao = int(input("Opção: "))
@@ -54,6 +81,8 @@ def run():
             if opcao == 4:
                 excluirCadastro(stub)
             if opcao == 5:
+                listarVendas(stub)
+            if opcao == 6:
                 break
 
     else:

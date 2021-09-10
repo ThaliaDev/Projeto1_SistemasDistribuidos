@@ -24,6 +24,26 @@ class UserStub(object):
                 request_serializer=gerenciar__adm__pb2.CadastroRequest.SerializeToString,
                 response_deserializer=gerenciar__adm__pb2.CadastroResponse.FromString,
                 )
+        self.listarClientes = channel.unary_unary(
+                '/User/listarClientes',
+                request_serializer=gerenciar__adm__pb2.ListaRequest.SerializeToString,
+                response_deserializer=gerenciar__adm__pb2.ListarClientesResponse.FromString,
+                )
+        self.listarClientesVendas = channel.unary_unary(
+                '/User/listarClientesVendas',
+                request_serializer=gerenciar__adm__pb2.ListaVendas.SerializeToString,
+                response_deserializer=gerenciar__adm__pb2.ListarClientesVendas.FromString,
+                )
+        self.editarCadastro = channel.unary_unary(
+                '/User/editarCadastro',
+                request_serializer=gerenciar__adm__pb2.EditarCadastroRequest.SerializeToString,
+                response_deserializer=gerenciar__adm__pb2.EditarCadastroResponse.FromString,
+                )
+        self.excluirCadastro = channel.unary_unary(
+                '/User/excluirCadastro',
+                request_serializer=gerenciar__adm__pb2.ExcluirCadastroRequest.SerializeToString,
+                response_deserializer=gerenciar__adm__pb2.ExcluirCadastroResponse.FromString,
+                )
 
 
 class UserServicer(object):
@@ -36,10 +56,31 @@ class UserServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def cadastro(self, request, context):
-        """rpc listarClientes (ListarClientesRequest) returns (ListarClientesResponse);
-        rpc editarCadastro (EditarCadastroRequest) returns (EditarCadastroResponse);
-        rpc excluirCadastro (ExcluirCadastroRequest) returns (ExcluirCadastroResponse);
-        """
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def listarClientes(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def listarClientesVendas(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def editarCadastro(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def excluirCadastro(self, request, context):
+        """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -56,6 +97,26 @@ def add_UserServicer_to_server(servicer, server):
                     servicer.cadastro,
                     request_deserializer=gerenciar__adm__pb2.CadastroRequest.FromString,
                     response_serializer=gerenciar__adm__pb2.CadastroResponse.SerializeToString,
+            ),
+            'listarClientes': grpc.unary_unary_rpc_method_handler(
+                    servicer.listarClientes,
+                    request_deserializer=gerenciar__adm__pb2.ListaRequest.FromString,
+                    response_serializer=gerenciar__adm__pb2.ListarClientesResponse.SerializeToString,
+            ),
+            'listarClientesVendas': grpc.unary_unary_rpc_method_handler(
+                    servicer.listarClientesVendas,
+                    request_deserializer=gerenciar__adm__pb2.ListaVendas.FromString,
+                    response_serializer=gerenciar__adm__pb2.ListarClientesVendas.SerializeToString,
+            ),
+            'editarCadastro': grpc.unary_unary_rpc_method_handler(
+                    servicer.editarCadastro,
+                    request_deserializer=gerenciar__adm__pb2.EditarCadastroRequest.FromString,
+                    response_serializer=gerenciar__adm__pb2.EditarCadastroResponse.SerializeToString,
+            ),
+            'excluirCadastro': grpc.unary_unary_rpc_method_handler(
+                    servicer.excluirCadastro,
+                    request_deserializer=gerenciar__adm__pb2.ExcluirCadastroRequest.FromString,
+                    response_serializer=gerenciar__adm__pb2.ExcluirCadastroResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -98,5 +159,73 @@ class User(object):
         return grpc.experimental.unary_unary(request, target, '/User/cadastro',
             gerenciar__adm__pb2.CadastroRequest.SerializeToString,
             gerenciar__adm__pb2.CadastroResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def listarClientes(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/User/listarClientes',
+            gerenciar__adm__pb2.ListaRequest.SerializeToString,
+            gerenciar__adm__pb2.ListarClientesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def listarClientesVendas(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/User/listarClientesVendas',
+            gerenciar__adm__pb2.ListaVendas.SerializeToString,
+            gerenciar__adm__pb2.ListarClientesVendas.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def editarCadastro(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/User/editarCadastro',
+            gerenciar__adm__pb2.EditarCadastroRequest.SerializeToString,
+            gerenciar__adm__pb2.EditarCadastroResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def excluirCadastro(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/User/excluirCadastro',
+            gerenciar__adm__pb2.ExcluirCadastroRequest.SerializeToString,
+            gerenciar__adm__pb2.ExcluirCadastroResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

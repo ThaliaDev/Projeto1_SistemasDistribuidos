@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x13gerenciar_adm.proto\".\n\x0cLoginRequest\x12\x0f\n\x07usuario\x18\x01 \x01(\t\x12\r\n\x05senha\x18\x02 \x01(\t\"6\n\rLoginResponse\x12\x17\n\x0fresponseMessage\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\"E\n\x0f\x43\x61\x64\x61stroRequest\x12\x11\n\tusuario_s\x18\x01 \x01(\t\x12\x0f\n\x07senha_s\x18\x02 \x01(\t\x12\x0e\n\x06\x63ompra\x18\x03 \x01(\t\"a\n\x10\x43\x61\x64\x61stroResponse\x12\x19\n\x11responseMessage_s\x18\x01 \x01(\t\x12\x11\n\tusuario_s\x18\x02 \x01(\t\x12\x0f\n\x07senha_s\x18\x03 \x01(\t\x12\x0e\n\x06\x63ompra\x18\x04 \x01(\t2_\n\x04User\x12&\n\x05login\x12\r.LoginRequest\x1a\x0e.LoginResponse\x12/\n\x08\x63\x61\x64\x61stro\x12\x10.CadastroRequest\x1a\x11.CadastroResponseb\x06proto3'
+  serialized_pb=b'\n\x13gerenciar_adm.proto\".\n\x0cLoginRequest\x12\x0f\n\x07usuario\x18\x01 \x01(\t\x12\r\n\x05senha\x18\x02 \x01(\t\"6\n\rLoginResponse\x12\x17\n\x0fresponseMessage\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\"E\n\x0f\x43\x61\x64\x61stroRequest\x12\x11\n\tusuario_s\x18\x01 \x01(\t\x12\x0f\n\x07senha_s\x18\x02 \x01(\t\x12\x0e\n\x06\x63ompra\x18\x03 \x01(\t\"a\n\x10\x43\x61\x64\x61stroResponse\x12\x19\n\x11responseMessage_s\x18\x01 \x01(\t\x12\x11\n\tusuario_s\x18\x02 \x01(\t\x12\x0f\n\x07senha_s\x18\x03 \x01(\t\x12\x0e\n\x06\x63ompra\x18\x04 \x01(\t\"\x0e\n\x0cListaRequest\"*\n\x16ListarClientesResponse\x12\x10\n\x08\x63lientes\x18\x01 \x01(\t\"\r\n\x0bListaVendas\"&\n\x14ListarClientesVendas\x12\x0e\n\x06vendas\x18\x01 \x01(\t\"7\n\x15\x45\x64itarCadastroRequest\x12\x0f\n\x07usuario\x18\x01 \x01(\t\x12\r\n\x05senha\x18\x02 \x01(\t\"Q\n\x16\x45\x64itarCadastroResponse\x12\x17\n\x0fresponseMessage\x18\x01 \x01(\t\x12\x0f\n\x07usuario\x18\x02 \x01(\t\x12\r\n\x05senha\x18\x03 \x01(\t\")\n\x16\x45xcluirCadastroRequest\x12\x0f\n\x07usuario\x18\x01 \x01(\t\"2\n\x17\x45xcluirCadastroResponse\x12\x17\n\x0fresponseMessage\x18\x01 \x01(\t2\xdf\x02\n\x04User\x12&\n\x05login\x12\r.LoginRequest\x1a\x0e.LoginResponse\x12/\n\x08\x63\x61\x64\x61stro\x12\x10.CadastroRequest\x1a\x11.CadastroResponse\x12\x38\n\x0elistarClientes\x12\r.ListaRequest\x1a\x17.ListarClientesResponse\x12;\n\x14listarClientesVendas\x12\x0c.ListaVendas\x1a\x15.ListarClientesVendas\x12\x41\n\x0e\x65\x64itarCadastro\x12\x16.EditarCadastroRequest\x1a\x17.EditarCadastroResponse\x12\x44\n\x0f\x65xcluirCadastro\x12\x17.ExcluirCadastroRequest\x1a\x18.ExcluirCadastroResponseb\x06proto3'
 )
 
 
@@ -201,10 +201,281 @@ _CADASTRORESPONSE = _descriptor.Descriptor(
   serialized_end=295,
 )
 
+
+_LISTAREQUEST = _descriptor.Descriptor(
+  name='ListaRequest',
+  full_name='ListaRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=297,
+  serialized_end=311,
+)
+
+
+_LISTARCLIENTESRESPONSE = _descriptor.Descriptor(
+  name='ListarClientesResponse',
+  full_name='ListarClientesResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='clientes', full_name='ListarClientesResponse.clientes', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=313,
+  serialized_end=355,
+)
+
+
+_LISTAVENDAS = _descriptor.Descriptor(
+  name='ListaVendas',
+  full_name='ListaVendas',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=357,
+  serialized_end=370,
+)
+
+
+_LISTARCLIENTESVENDAS = _descriptor.Descriptor(
+  name='ListarClientesVendas',
+  full_name='ListarClientesVendas',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='vendas', full_name='ListarClientesVendas.vendas', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=372,
+  serialized_end=410,
+)
+
+
+_EDITARCADASTROREQUEST = _descriptor.Descriptor(
+  name='EditarCadastroRequest',
+  full_name='EditarCadastroRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='usuario', full_name='EditarCadastroRequest.usuario', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='senha', full_name='EditarCadastroRequest.senha', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=412,
+  serialized_end=467,
+)
+
+
+_EDITARCADASTRORESPONSE = _descriptor.Descriptor(
+  name='EditarCadastroResponse',
+  full_name='EditarCadastroResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='responseMessage', full_name='EditarCadastroResponse.responseMessage', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='usuario', full_name='EditarCadastroResponse.usuario', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='senha', full_name='EditarCadastroResponse.senha', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=469,
+  serialized_end=550,
+)
+
+
+_EXCLUIRCADASTROREQUEST = _descriptor.Descriptor(
+  name='ExcluirCadastroRequest',
+  full_name='ExcluirCadastroRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='usuario', full_name='ExcluirCadastroRequest.usuario', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=552,
+  serialized_end=593,
+)
+
+
+_EXCLUIRCADASTRORESPONSE = _descriptor.Descriptor(
+  name='ExcluirCadastroResponse',
+  full_name='ExcluirCadastroResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='responseMessage', full_name='ExcluirCadastroResponse.responseMessage', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=595,
+  serialized_end=645,
+)
+
 DESCRIPTOR.message_types_by_name['LoginRequest'] = _LOGINREQUEST
 DESCRIPTOR.message_types_by_name['LoginResponse'] = _LOGINRESPONSE
 DESCRIPTOR.message_types_by_name['CadastroRequest'] = _CADASTROREQUEST
 DESCRIPTOR.message_types_by_name['CadastroResponse'] = _CADASTRORESPONSE
+DESCRIPTOR.message_types_by_name['ListaRequest'] = _LISTAREQUEST
+DESCRIPTOR.message_types_by_name['ListarClientesResponse'] = _LISTARCLIENTESRESPONSE
+DESCRIPTOR.message_types_by_name['ListaVendas'] = _LISTAVENDAS
+DESCRIPTOR.message_types_by_name['ListarClientesVendas'] = _LISTARCLIENTESVENDAS
+DESCRIPTOR.message_types_by_name['EditarCadastroRequest'] = _EDITARCADASTROREQUEST
+DESCRIPTOR.message_types_by_name['EditarCadastroResponse'] = _EDITARCADASTRORESPONSE
+DESCRIPTOR.message_types_by_name['ExcluirCadastroRequest'] = _EXCLUIRCADASTROREQUEST
+DESCRIPTOR.message_types_by_name['ExcluirCadastroResponse'] = _EXCLUIRCADASTRORESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 LoginRequest = _reflection.GeneratedProtocolMessageType('LoginRequest', (_message.Message,), {
@@ -235,6 +506,62 @@ CadastroResponse = _reflection.GeneratedProtocolMessageType('CadastroResponse', 
   })
 _sym_db.RegisterMessage(CadastroResponse)
 
+ListaRequest = _reflection.GeneratedProtocolMessageType('ListaRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTAREQUEST,
+  '__module__' : 'gerenciar_adm_pb2'
+  # @@protoc_insertion_point(class_scope:ListaRequest)
+  })
+_sym_db.RegisterMessage(ListaRequest)
+
+ListarClientesResponse = _reflection.GeneratedProtocolMessageType('ListarClientesResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTARCLIENTESRESPONSE,
+  '__module__' : 'gerenciar_adm_pb2'
+  # @@protoc_insertion_point(class_scope:ListarClientesResponse)
+  })
+_sym_db.RegisterMessage(ListarClientesResponse)
+
+ListaVendas = _reflection.GeneratedProtocolMessageType('ListaVendas', (_message.Message,), {
+  'DESCRIPTOR' : _LISTAVENDAS,
+  '__module__' : 'gerenciar_adm_pb2'
+  # @@protoc_insertion_point(class_scope:ListaVendas)
+  })
+_sym_db.RegisterMessage(ListaVendas)
+
+ListarClientesVendas = _reflection.GeneratedProtocolMessageType('ListarClientesVendas', (_message.Message,), {
+  'DESCRIPTOR' : _LISTARCLIENTESVENDAS,
+  '__module__' : 'gerenciar_adm_pb2'
+  # @@protoc_insertion_point(class_scope:ListarClientesVendas)
+  })
+_sym_db.RegisterMessage(ListarClientesVendas)
+
+EditarCadastroRequest = _reflection.GeneratedProtocolMessageType('EditarCadastroRequest', (_message.Message,), {
+  'DESCRIPTOR' : _EDITARCADASTROREQUEST,
+  '__module__' : 'gerenciar_adm_pb2'
+  # @@protoc_insertion_point(class_scope:EditarCadastroRequest)
+  })
+_sym_db.RegisterMessage(EditarCadastroRequest)
+
+EditarCadastroResponse = _reflection.GeneratedProtocolMessageType('EditarCadastroResponse', (_message.Message,), {
+  'DESCRIPTOR' : _EDITARCADASTRORESPONSE,
+  '__module__' : 'gerenciar_adm_pb2'
+  # @@protoc_insertion_point(class_scope:EditarCadastroResponse)
+  })
+_sym_db.RegisterMessage(EditarCadastroResponse)
+
+ExcluirCadastroRequest = _reflection.GeneratedProtocolMessageType('ExcluirCadastroRequest', (_message.Message,), {
+  'DESCRIPTOR' : _EXCLUIRCADASTROREQUEST,
+  '__module__' : 'gerenciar_adm_pb2'
+  # @@protoc_insertion_point(class_scope:ExcluirCadastroRequest)
+  })
+_sym_db.RegisterMessage(ExcluirCadastroRequest)
+
+ExcluirCadastroResponse = _reflection.GeneratedProtocolMessageType('ExcluirCadastroResponse', (_message.Message,), {
+  'DESCRIPTOR' : _EXCLUIRCADASTRORESPONSE,
+  '__module__' : 'gerenciar_adm_pb2'
+  # @@protoc_insertion_point(class_scope:ExcluirCadastroResponse)
+  })
+_sym_db.RegisterMessage(ExcluirCadastroResponse)
+
 
 
 _USER = _descriptor.ServiceDescriptor(
@@ -244,8 +571,8 @@ _USER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=297,
-  serialized_end=392,
+  serialized_start=648,
+  serialized_end=999,
   methods=[
   _descriptor.MethodDescriptor(
     name='login',
@@ -264,6 +591,46 @@ _USER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_CADASTROREQUEST,
     output_type=_CADASTRORESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='listarClientes',
+    full_name='User.listarClientes',
+    index=2,
+    containing_service=None,
+    input_type=_LISTAREQUEST,
+    output_type=_LISTARCLIENTESRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='listarClientesVendas',
+    full_name='User.listarClientesVendas',
+    index=3,
+    containing_service=None,
+    input_type=_LISTAVENDAS,
+    output_type=_LISTARCLIENTESVENDAS,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='editarCadastro',
+    full_name='User.editarCadastro',
+    index=4,
+    containing_service=None,
+    input_type=_EDITARCADASTROREQUEST,
+    output_type=_EDITARCADASTRORESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='excluirCadastro',
+    full_name='User.excluirCadastro',
+    index=5,
+    containing_service=None,
+    input_type=_EXCLUIRCADASTROREQUEST,
+    output_type=_EXCLUIRCADASTRORESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

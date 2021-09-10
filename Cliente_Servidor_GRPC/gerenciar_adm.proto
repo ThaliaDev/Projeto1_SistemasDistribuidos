@@ -4,6 +4,7 @@ service User {
   rpc login(LoginRequest) returns (LoginResponse);
   rpc cadastro(CadastroRequest) returns (CadastroResponse);
   rpc listarClientes (ListaRequest) returns (ListarClientesResponse);
+  rpc listarClientesVendas (ListaVendas) returns (ListarClientesVendas);
   rpc editarCadastro (EditarCadastroRequest) returns (EditarCadastroResponse);
   rpc excluirCadastro (ExcluirCadastroRequest) returns (ExcluirCadastroResponse);
 }
@@ -31,15 +32,22 @@ message CadastroResponse{
   string compra = 4;
 }
 
-//LISTAR CLIENTES E VENDAS
+//LISTAR CLIENTES
 message ListaRequest{}
 message ListarClientesResponse{
-  repeated string clientes = 1;
+  string clientes = 1;
+}
+
+//LISTAR VENDAS
+message ListaVendas{}
+message ListarClientesVendas{
+  string vendas = 1;
 }
 
 //EDITAR CADASTRO
 message EditarCadastroRequest{
   string usuario = 1;
+  string senha = 2;
 }
 message EditarCadastroResponse{
   string responseMessage = 1;
