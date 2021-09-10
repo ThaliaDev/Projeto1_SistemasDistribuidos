@@ -1,16 +1,14 @@
 from concurrent import futures
 import logging
 import paho.mqtt.client as mqtt
-from random import randrange, uniform
+import ast
 import time
 import grpc
-import requests
-
 import gerenciar_adm_pb2_grpc
 import gerenciar_adm_pb2
 
-usuario = 'thalia'
-senha = '123'
+usuario = 'admin'
+senha = 'admin'
 
 dicionario_cliente = dict()
 lista_clientes = []
@@ -57,7 +55,11 @@ class User(gerenciar_adm_pb2_grpc.UserServicer):
     def listarClientesVendas(self, request, context):
         global dicionario_cliente
         global lista_clientes_vendas
-        lista_clientes_vendas += [y[1] for x,y in dicionario_cliente.items()]
+
+        for x, y in dicionario_cliente.items():
+            if y[1] not in lista_clientes_vendas:
+                lista_clientes_vendas.append(y[1])
+
         print(lista_clientes_vendas)
         return gerenciar_adm_pb2.ListarClientesResponse(clientes = str(lista_clientes_vendas))
 
@@ -71,17 +73,31 @@ class User(gerenciar_adm_pb2_grpc.UserServicer):
         else:
             return gerenciar_adm_pb2.EditarCadastroResponse(responseMessage = "Usuário não existente")
 
-
     def excluirCadastro(self, request, context):
         global dicionario_cliente
         global lista_clientes_vendas
         if request.usuario in dicionario_cliente:
+
+            for x in lista_clientes_vendas:
+                if dicionario_cliente[request.usuario][1] not in lista_clientes_vendas:
+                    lista_clientes_vendas.append(x)
+
             dicionario_cliente.pop(request.usuario)
             client.publish("EXCLUIDO", str(dicionario_cliente))
             print("Cadastros excluidos " + str(dicionario_cliente) + " na base de dados!")
             return gerenciar_adm_pb2.ExcluirCadastroResponse(responseMessage = "Usuário deletado com sucesso")
         else:
             return gerenciar_adm_pb2.ExcluirCadastroResponse(responseMessage = "Usuário não existente")
+
+def on_message(client, userdata, message):
+    print("Cadastros existentes: ", str(message.payload.decode("utf-8")))
+    global dicionario_cliente
+    dicionario_cliente = ast.literal_eval(str(message.payload.decode("utf-8")))
+
+client.loop_start()
+client.subscribe("COMPRA")
+client.on_message = on_message
+time.sleep(20)
 
 print(dicionario_cliente)
 print(lista_clientes)

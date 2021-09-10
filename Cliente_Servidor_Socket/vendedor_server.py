@@ -5,9 +5,6 @@ import time
 import ast
 
 dados_usuario = dict()
-'''dados_usuario['Thalia'] = ["123","null"]
-dados_usuario['Thalia'][1] = dict()
-print(dados_usuario)'''
 
 s = socket.socket()
 host = socket.gethostname()
@@ -26,6 +23,8 @@ client.connect(mqttBroker)
 
 client.loop_start()
 client.subscribe("CADASTRO")
+client.subscribe("EDITADO")
+client.subscribe("EXCLUIDO")
 client.on_message = on_message
 time.sleep(20)
 
@@ -47,6 +46,7 @@ while True:
                 compra = c.recv(1024)
                 dados_compra = compra.decode()
                 dados_usuario[chave][1] = dados_compra
+                client.publish("COMPRA", str(dados_usuario))
                 dados_usuario.update(dados_usuario)
             else:
                 c.sendall("Usuário ou senha incorretos.".encode())

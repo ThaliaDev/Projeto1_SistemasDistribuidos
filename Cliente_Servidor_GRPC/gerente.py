@@ -66,7 +66,7 @@ def run():
 
     if (response.responseMessage == "Usuário logado"):
         print(f"\nBem vind@, {usuario}.")
-        print("\n === MENU DE OPÇÕES === \n\n1 - Cadastrar novo cliente"
+        print("\n === MENU DE OPÇÕES === \n\n1 - Cadastrar novo funcionário"
               "\n2 - Listar funcionários \n3 - Editar cadastro \n4 - Excluir cadastro"
               "\n5 - Listar vendas \n6 - Logout\n")
 
