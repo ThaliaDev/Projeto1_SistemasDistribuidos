@@ -3,30 +3,54 @@ syntax = "proto3";
 service User {
   rpc login(LoginRequest) returns (LoginResponse);
   rpc cadastro(CadastroRequest) returns (CadastroResponse);
-  //rpc listarClientes (ListarClientesRequest) returns (ListarClientesResponse);
-  //rpc editarCadastro (EditarCadastroRequest) returns (EditarCadastroResponse);
-  //rpc excluirCadastro (ExcluirCadastroRequest) returns (ExcluirCadastroResponse);
+  rpc listarClientes (ListaRequest) returns (ListarClientesResponse);
+  rpc editarCadastro (EditarCadastroRequest) returns (EditarCadastroResponse);
+  rpc excluirCadastro (ExcluirCadastroRequest) returns (ExcluirCadastroResponse);
 }
 
+//LOGIN
 message LoginRequest{
   string usuario = 1;
   string senha = 2;
 }
-
 message LoginResponse{
   string responseMessage = 1;
   int32 code = 2;
 }
 
+//CADASTRO
 message CadastroRequest{
   string usuario_s = 1;
   string senha_s = 2;
   string compra = 3;
 }
-
 message CadastroResponse{
   string responseMessage_s = 1;
   string usuario_s = 2;
   string senha_s = 3;
   string compra = 4;
+}
+
+//LISTAR CLIENTES E VENDAS
+message ListaRequest{}
+message ListarClientesResponse{
+  repeated string clientes = 1;
+}
+
+//EDITAR CADASTRO
+message EditarCadastroRequest{
+  string usuario = 1;
+}
+message EditarCadastroResponse{
+  string responseMessage = 1;
+  string usuario = 2;
+  string senha = 3;
+}
+
+//EXCLUIR CADASTRO
+message ExcluirCadastroRequest{
+  string usuario = 1;
+}
+message ExcluirCadastroResponse{
+  string responseMessage = 1;
 }
