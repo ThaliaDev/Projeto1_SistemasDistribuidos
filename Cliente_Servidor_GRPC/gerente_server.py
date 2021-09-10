@@ -57,18 +57,6 @@ def serve():
     server.start()
     server.wait_for_termination()
 
-'''if(adm_logado == True and cadastrando == False):
-
-    mqttBroker = "mqtt.eclipseprojects.io"
-    client = mqtt.Client("Temperature_Inside")
-    client.connect(mqttBroker)
-
-    while True:
-        informacoes = str(dicionario_cliente)
-        client.publish("Infos cliente", informacoes)
-        print("Just published " + str(informacoes) + " to Topic TEMPERATURE")
-        time.sleep(1)'''
-
 if __name__ == '__main__':
     logging.basicConfig()
     serve()

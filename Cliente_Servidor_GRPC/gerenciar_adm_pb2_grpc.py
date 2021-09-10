@@ -39,7 +39,6 @@ class UserServicer(object):
         """rpc listarClientes (ListarClientesRequest) returns (ListarClientesResponse);
         rpc editarCadastro (EditarCadastroRequest) returns (EditarCadastroResponse);
         rpc excluirCadastro (ExcluirCadastroRequest) returns (ExcluirCadastroResponse);
-        rpc listarClientesPedidos (ListarClientesPedidosRequest) returns (ListarClientesPedidosResponse);
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

@@ -24,9 +24,6 @@ def editarCadastro(stub):
 def excluirCadastro(stub):
     print("Excluir cadastro")
 
-def listarClientesPedidos(stub):
-    print("Listar Clientes e Pedidos")
-
 dados_cadastro = dict()
 
 print("\nBem-vind@ ao portal do administrador! Faça o seu login.\n")
@@ -42,9 +39,9 @@ def run():
 
     if (response.responseMessage == "Usuário logado"):
         print(f"\nBem vind@, {usuario}.")
-        print("\n === MENU DE OPÇÕES === \n\n1 - Cadastrar novo cliente "
-              "\n2 - Listar clientes cadastrados \n3 - Editar cadastro \n4 - Excluir cadastro "
-              "\n5 - Listar clientes e pedidos \n6 - Logout\n")
+        print("\n === MENU DE OPÇÕES === \n\n1 - Cadastrar novo cliente"
+              "\n2 - Listar clientes cadastrados \n3 - Editar cadastro \n4 - Excluir cadastro"
+              "\n5 - Logout\n")
 
         while True:
             opcao = int(input("Opção: "))
@@ -57,8 +54,6 @@ def run():
             if opcao == 4:
                 excluirCadastro(stub)
             if opcao == 5:
-                listarClientesPedidos(stub)
-            if opcao == 6:
                 break
 
     else:

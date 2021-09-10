@@ -6,7 +6,6 @@ service User {
   //rpc listarClientes (ListarClientesRequest) returns (ListarClientesResponse);
   //rpc editarCadastro (EditarCadastroRequest) returns (EditarCadastroResponse);
   //rpc excluirCadastro (ExcluirCadastroRequest) returns (ExcluirCadastroResponse);
-  //rpc listarClientesPedidos (ListarClientesPedidosRequest) returns (ListarClientesPedidosResponse);
 }
 
 message LoginRequest{
