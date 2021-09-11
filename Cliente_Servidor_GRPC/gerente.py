@@ -30,7 +30,8 @@ def listarVendas(stub):
     lista = ast.literal_eval(lista.vendas)
     for i in lista:
         final = i.split(':')
-        final = removeChar(final[1])
+        if len(final) > 1:
+            final = removeChar(final[1])
 
         if i != '':
             print(str(cont) + ". " + str(final) + "\n")
