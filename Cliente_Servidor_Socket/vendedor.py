@@ -26,7 +26,7 @@ if logado == f"Bem-vind@, {user}.":
     nomeCliente = input("Nome do cliente: ")
     nomeItem = input("Nome do item: ")
     valor = input("Valor: ")
-    itemValor = " comprou um(a) " + nomeItem + " no valor de R$" + valor
+    itemValor = nomeItem + " no valor de R$" + valor + " reais."
 
     dados_compra = dict()
     dados_compra[nomeCliente] = [itemValor]

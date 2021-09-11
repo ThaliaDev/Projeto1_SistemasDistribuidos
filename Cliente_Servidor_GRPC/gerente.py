@@ -22,8 +22,11 @@ def listarVendas(stub):
     lista = stub.listarClientesVendas(gerenciar_adm_pb2.ListaVendas())
     lista = ast.literal_eval(lista.vendas)
     for i in lista:
+        final = i.split(':')
+        final = final[1].replace('[','').replace(']','').replace('}','').replace("'",'')
+
         if i != '':
-            print(str(cont) + ". " + i + "\n")
+            print(str(cont) + ". " + final + "\n")
             cont += 1
 
 def listarClientes(stub):
