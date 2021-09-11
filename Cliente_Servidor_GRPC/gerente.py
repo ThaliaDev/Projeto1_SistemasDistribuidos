@@ -5,6 +5,13 @@ import gerenciar_adm_pb2_grpc
 import gerenciar_adm_pb2
 import ast
 
+def removeChar(lista):
+    pontuacao = ['[','{',']','}',"'"]
+    for i in lista:
+        if i in pontuacao:
+            lista = lista.replace(i,'')
+    return lista
+
 def cadastro(stub):
 
     usuario_s = input("Nome de login do funcionário: ")
@@ -23,10 +30,10 @@ def listarVendas(stub):
     lista = ast.literal_eval(lista.vendas)
     for i in lista:
         final = i.split(':')
-        final = final[1].replace('[','').replace(']','').replace('}','').replace("'",'')
+        final = removeChar(final[1])
 
         if i != '':
-            print(str(cont) + ". " + final + "\n")
+            print(str(cont) + ". " + str(final) + "\n")
             cont += 1
 
 def listarClientes(stub):
